@@ -1,6 +1,7 @@
 :root {
     --orange: rgb(231, 108, 31);
-    --beige: rgb(253, 234, 220);
+    --beige: rgba(250, 202, 172, 1);
+    --beige-light: rgb(253, 234, 220);
     --black: rgb(54, 53, 52);
     --grey: rgb(114, 109, 109);
 

@@ -48,11 +48,12 @@
   src: url('../assets/fonts/palanquin-v17-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-html {
+html, button {
     font-size: 16px;
     font-family: 'Palanquin';
     line-height: 120%;
     text-align: center;
+    color: var(--black);
 }
 
 h1 {
@@ -63,29 +64,26 @@ h1 {
 
 h2 {
     font-weight: 700;
-    font-style: Bold;
     font-size: 40px;
+    color: white;
 }
 
 h3 {
     font-weight: 600;
-    font-style: SemiBold;
     font-size: 24px;
     line-height: 100%;
 }
 
 h4 {
     font-weight: 700;
-    font-style: Bold;
     font-size: 32px;
+    color: var(--beige-light);
 }
 
 .palanquin-600 {
     font-weight: 600;
-    font-style: SemiBold;
 }
 
 .palanquin-700 {
     font-weight: 600;
-    font-style: Bold;
 }
