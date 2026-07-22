@@ -1,113 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestell APP</title>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.svg" />
 
-
-    <link rel="stylesheet" href="./styles/standard.css">
-    <link rel="stylesheet" href="./styles/variables.css">
-    <link rel="stylesheet" href="./styles/fonts.css">
-    <link rel="stylesheet" href="./styles/header-footer.css">
-    <link rel="stylesheet" href="./styles/assets.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./styles/basket.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/header-footer.css" />
+    <link rel="stylesheet" href="./styles/assets.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/basket.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
 
     <script src="./scripts/data.js" defer></script>
     <script src="./scripts/template.js" defer></script>
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="header-content">
-            <img class="icon-logo" src="./assets/icons/logo-2.svg" alt="Bestell-App Logo">
-            <img class="icon-nav" src="./assets/icons/icon-nav.svg" alt="Burger_Menü">
-        </div>
+      <div class="header-content">
+        <img
+          class="icon-logo"
+          src="./assets/icons/logo-2.svg"
+          alt="Bestell-App Logo"
+        />
+        <img
+          class="icon-nav"
+          src="./assets/icons/icon-nav.svg"
+          alt="Burger_Menü"
+        />
+      </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="logo">
-                <img class="logo-img" src="./assets/pngs/logo-img.png" alt="Darstellung eines Burgers">
-            </div>
-        </section>
+      <section class="hero">
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="./assets/pngs/logo-img.png"
+            alt="Darstellung eines Burgers"
+          />
+        </div>
+      </section>
 
-        <section class="heading">
-            <div class="heading-wrapper">
-                <h1><span class="heading-span">Burger</span>House</h1>
-                <div class="rating">
-                    <img src="./assets/icons/icon-star.svg" alt="Stern">
-                    <p class="avg-rating" id="avg-rating">4,1</p>
-                    <p class="sum-rating" id="sum-rating">(317)</p>
-                </div>
-            </div>
-            <p class="subheading">The best of Burgers, Pizza, and Greens, all in one great place.</p>
-        </section>
+      <section class="heading">
+        <div class="heading-wrapper">
+          <h1><span class="heading-span">Burger</span>House</h1>
+          <div class="rating">
+            <img src="./assets/icons/icon-star.svg" alt="Stern" />
+            <p class="avg-rating" id="avg-rating">4,1</p>
+            <p class="sum-rating" id="sum-rating">(317)</p>
+          </div>
+        </div>
+        <p class="subheading">
+          The best of Burgers, Pizza, and Greens, all in one great place.
+        </p>
+      </section>
 
-        <section class="menu-wrapper" id="menu-wrapper">
-            <div class="category">
-                <img class="dish-logo" src="./assets/icons/icon-burger.svg" alt="Icon eines Burgers">
-                <h2>Burger & Sandwiches</h2>
+      <section class="menu-wrapper" id="menu-wrapper">
+        <div class="category">
+          <img
+            class="dish-logo"
+            src="./assets/icons/icon-burger.svg"
+            alt="Icon eines Burgers"
+          />
+          <h2>Burger & Sandwiches</h2>
+        </div>
+        <div class="cards-wrapper">
+          <article class="card">
+            <img
+              class="dish-img"
+              src="./assets/pngs/dishes/burger/veggie-mushroom.jpg"
+              alt=""
+            />
+            <div class="dish">
+              <h3>Veggie mushroom black burger</h3>
+              <p class="dish-description">
+                Mixed green salad, Tomatoes, Edamame, Mushrooms
+              </p>
             </div>
-            <div class="cards-wrapper">
-                <article class="card">
-                    <img class="dish-img" src="./assets/pngs/dishes/burger/veggie-mushroom.jpg" alt="">
-                    <div class="dish">
-                        <h3>Veggie mushroom black burger</h3>
-                        <p class="dish-description">Mixed green salad, Tomatoes, Edamame, Mushrooms</p>
-                    </div>
-                    <div class="order">
-                        <p class="price">16,90€</p>
-                        <button class="add-to-basket added">Added <span>1</span></button>
-                    </div>
-                </article>
+            <div class="order">
+              <p class="price">16,90€</p>
+              <button class="add-to-basket added">Added <span>1</span></button>
             </div>
-        </section>
+          </article>
+        </div>
+      </section>
 
-        <section class="basket">
-            <h4>Your Basket</h4>
-            <div class="basket-content">
-                <div class="basket-card">
-                    <div class="basket-dish">
-                        <p class="dish-name"><span class="amount">1x</span> Veggie mushroom black burger</p>
-                        <svg class="icon-delete">
-                            <use href="./assets/icons/icons.svg#icon-delete"></use>
-                        </svg>
-                    </div>
-                    <div class="basket-info">
-                        <div class="basket-amount">
-                            <button class="sub">-</button>
-                            <p>1</p>
-                            <button class="add">+</button>
-                        </div>
-                        <p>16,90€</p>
-                    </div>
-                </div>
+      <section class="basket">
+        <h4>Your Basket</h4>
+        <div class="basket-content">
+          <div class="basket-card">
+            <div class="basket-dish">
+              <p class="dish-name">
+                <span class="amount">1x</span> Veggie mushroom black burger
+              </p>
+              <svg class="icon-delete">
+                <use href="./assets/icons/icons.svg#icon-delete"></use>
+              </svg>
             </div>
-            <div class="confirm-order">
-                <table class="costs">
-                    <tr>
-                        <th>Subtotal</th>
-                        <td>36,70€</td>
-                    </tr>
-                    <tr>
-                        <th>Delivery fee</th>
-                        <td>4,99€</td>
-                    </tr>
-                    <tr class="total">
-                        <th>Total</th>
-                        <td>41,69€</td>
-                    </tr>
-                </table>
-                <button class="btn-buy">Buy now (<span>41,69€</span>)</button>
+            <div class="basket-info">
+              <div class="basket-amount">
+                <button class="sub">-</button>
+                <p>1</p>
+                <button class="add">+</button>
+              </div>
+              <p>16,90€</p>
             </div>
-        </section>
+          </div>
+        </div>
+        <div class="confirm-order">
+          <table class="costs">
+            <tr>
+              <th>Subtotal</th>
+              <td>36,70€</td>
+            </tr>
+            <tr>
+              <th>Delivery fee</th>
+              <td>4,99€</td>
+            </tr>
+            <tr class="total">
+              <th>Total</th>
+              <td>41,69€</td>
+            </tr>
+          </table>
+          <button class="btn-buy">Buy now (<span>41,69€</span>)</button>
+        </div>
+      </section>
     </main>
 
-    <footer></footer>
-</body>
+    <footer>
+      <div class="footer-content">
+        <p>© 2025 BurgerHouse</p>
+        <p>Imprint</p>
+        <p>Cookie Preferences</p>
+      </div>
+    </footer>
+  </body>
 </html>

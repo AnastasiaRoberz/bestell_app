@@ -1,102 +1,102 @@
 .basket {
-    width: 435px;
-    height: auto;
-    padding: 60px 30px;
-    background-color: var(--black);
-    border-start-start-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-    position: absolute;
+  width: 435px;
+  height: auto;
+  padding: 60px 30px;
+  background-color: var(--black);
+  border-start-start-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  /* position: absolute;
     top: 838px;
-    right: 0;
+    right: 0; */
 }
 
 .basket-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .basket-card {
-    background-color: var(--beige-light);
-    padding: 20px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 1.375rem;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  background-color: var(--beige-light);
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .basket-dish {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .dish-name {
-    line-height: 120%;
-    text-align: left;
+  line-height: 120%;
+  text-align: left;
 }
 
 .icon-delete {
-    height: 20px;
-    width: 18px;
+  height: 20px;
+  width: 18px;
 }
 
 .basket-info {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .basket-amount {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 
-    > button {
-        font-weight: 600;
-    }
+  > button {
+    font-weight: 600;
+  }
 }
 
 .confirm-order {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    color: white;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  color: white;
+  width: 100%;
 }
 
 .costs {
-    width: 100%;
-    font-size: 1.25rem;
-    
-    th {
-        text-align: left;
-        height: 26px;
-        font-weight: 600;
-    }
+  width: 100%;
+  font-size: 1.25rem;
 
-    td {
-        text-align: right;
-        height: 26px;
-        font-weight: 600;
-    }
+  th {
+    text-align: left;
+    height: 26px;
+    font-weight: 600;
+  }
 
-    .total {
-        font-size: 22px;
-        font-weight: 700;
-    }
+  td {
+    text-align: right;
+    height: 26px;
+    font-weight: 600;
+  }
+
+  .total {
+    font-size: 22px;
+    font-weight: 700;
+  }
 }
 
 .btn-buy {
-    color: white;
-    font-weight: 700;
-    font-size: 2rem;
-    background-color: orange;
-    padding: 13px 37px;
-    border-radius: 60px;
-    width: fit-content;
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  background-color: orange;
+  padding: 13px 37px;
+  border-radius: 60px;
+  width: fit-content;
 }
