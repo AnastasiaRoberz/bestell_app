@@ -1,15 +1,20 @@
 .basket {
+  display: none;
+}
+
+.basket-opened {
   width: 435px;
   height: auto;
   padding: 60px 30px;
   background-color: var(--black);
-  border-start-start-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
   display: flex;
   flex-direction: column;
   gap: 36px;
-  /* position: absolute;
-    top: 838px;
-    right: 0; */
+  position: absolute;
+  top: 838px;
+  right: 0;
 }
 
 .basket-content {
@@ -40,11 +45,6 @@
   text-align: left;
 }
 
-.icon-delete {
-  height: 20px;
-  width: 18px;
-}
-
 .basket-info {
   display: flex;
   justify-content: space-between;
@@ -53,11 +53,7 @@
 .basket-amount {
   display: flex;
   align-items: center;
-  gap: 4px;
-
-  > button {
-    font-weight: 600;
-  }
+  gap: 6px;
 }
 
 .confirm-order {
@@ -89,14 +85,4 @@
     font-size: 22px;
     font-weight: 700;
   }
-}
-
-.btn-buy {
-  color: white;
-  font-weight: 700;
-  font-size: 2rem;
-  background-color: orange;
-  padding: 13px 37px;
-  border-radius: 60px;
-  width: fit-content;
 }

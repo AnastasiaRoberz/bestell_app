@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  position: relative;
   scroll-behavior: smooth;
   text-wrap-style: balance;
 }
@@ -21,6 +20,7 @@ main {
   align-items: center;
   gap: 80px;
   flex: 1;
+  padding-bottom: 80px;
 }
 
 button {
