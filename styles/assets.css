@@ -1,0 +1,49 @@
+.add-to-basket {
+  background-color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 8px;
+
+  font-family: Palanquin;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 120%;
+  white-space: nowrap;
+}
+
+.added {
+  color: var(--orange);
+}
+
+.change-amount {
+  height: 18px;
+  width: 18px;
+  stroke: var(--black);
+  stroke-width: 1.5px;
+  fill: transparent;
+}
+
+.amount-value {
+  line-height: 0;
+  padding-bottom: 6px;
+}
+
+.icon-delete {
+  height: 20px;
+  width: 18px;
+  fill: var(--black);
+}
+
+.btn-buy {
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  background-color: orange;
+  padding: 13px 37px;
+  border-radius: 60px;
+  width: fit-content;
+}
+
+.disable {
+  display: none;
+}
