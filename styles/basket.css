@@ -1,3 +1,7 @@
+.basket-wrapper {
+  width: 435px;
+}
+
 .basket {
   display: none;
 }
@@ -6,15 +10,15 @@
   width: 435px;
   height: auto;
   padding: 60px 30px;
+  margin-top: 60px;
   background-color: var(--black);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   display: flex;
   flex-direction: column;
   gap: 36px;
-  position: absolute;
-  top: 838px;
-  right: 0;
+  position: sticky;
+  top: 0;
 }
 
 .basket-content {
