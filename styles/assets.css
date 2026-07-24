@@ -23,11 +23,6 @@
   fill: transparent;
 }
 
-.amount-value {
-  line-height: 0;
-  padding-bottom: 6px;
-}
-
 .icon-delete {
   height: 20px;
   width: 18px;
@@ -41,7 +36,7 @@
   background-color: orange;
   padding: 13px 37px;
   border-radius: 60px;
-  width: fit-content;
+  width: 350px;
 }
 
 .disable {

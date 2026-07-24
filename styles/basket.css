@@ -60,6 +60,13 @@
   gap: 6px;
 }
 
+.amount-value {
+  line-height: 0;
+  padding-bottom: 6px;
+  width: 30px;
+  align-content: center;
+}
+
 .confirm-order {
   display: flex;
   flex-direction: column;

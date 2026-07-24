@@ -19,21 +19,41 @@
   gap: 28px;
   background-color: var(--orange);
   height: 60px;
+  position: relative;
+}
 
-  .category-header-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 32px;
-    width: 100%;
-    max-width: 1440px;
-    padding: 0 120px;
-  }
+.category-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 100vw;
+  background-color: #e56018;
+}
 
-  .category-logo {
-    height: 91px;
-    width: auto;
-  }
+.category-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 100vw;
+  background-color: #e56018;
+}
+
+.category-header-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  padding: 0 120px;
+}
+
+.category-logo {
+  height: 91px;
+  width: auto;
 }
 
 .cards-wrapper {
