@@ -1,101 +1,95 @@
 //#region CARD TEMPLATES
-function dishCardTemplate(currentDish, formattedPrice) {
-  return /*html*/ `
-    <article class="card">
-      <img
-        class="dish-img"
-        src="./assets/pngs/dishes/${currentDish.fileName}"
-        alt=""
-      />
-      <div class="dish">
-        <h3>${currentDish.name}</h3>
-        <p class="dish-description">${currentDish.description}</p>
-      </div>
-      <div class="order">
-        <p class="price">${formattedPrice}</p>
-        <button class="add-to-basket" id="add-to-basket${currentDish.dishID}" onclick="addToBasket('${currentDish.dishID}', this)">Add to basket</button>
-      </div>
-    </article>
-  `;
-}
-
-function categoryTemplate(currentCategory, dishes) {
-  return /*html*/ `
-    <div class="category">
-      <div class="category-header">
-        <div class="category-header-content">
-          <img
-            class="category-logo"
-            id="category-logo"
-            src="./assets/icons/${currentCategory.iconFileName}"
-            alt="Icon eines Burgers"
-          />
-          <h2 id="category-name">${currentCategory.category}</h2>
-        </div>
-      </div>
-      <div class="cards-wrapper">${dishes}</div>
+const dishCardTemplate = (
+  currentDish,
+  formattedPrice,
+  btnClass,
+  btnText,
+  isDisabled,
+) => /*html*/ `
+  <article class="card" id="card-dish${currentDish.dishID}">
+    <img
+      class="dish-img"
+      src="./assets/pngs/dishes/${currentDish.fileName}"
+      alt=""
+    />
+    <div class="dish">
+      <h3>${currentDish.name}</h3>
+      <p class="dish-description">${currentDish.description}</p>
     </div>
-  `;
-}
+    <div class="order">
+      <p class="price">${formattedPrice}</p>
+      <button class="add-to-basket ${btnClass}" id="add-to-basket${currentDish.dishID}" onclick="addToBasket('${currentDish.dishID}', this)" ${isDisabled}>${btnText}</button>
+    </div>
+  </article>
+`;
+
+const categoryTemplate = (currentCategory, dishes) => /*html*/ `
+  <div class="category">
+    <div class="category-header">
+      <div class="category-header-content">
+        <img
+          class="category-logo"
+          id="category-logo"
+          src="./assets/icons/${currentCategory.iconFileName}"
+          alt="Icon eines Burgers"
+        />
+        <h2 id="category-name">${currentCategory.category}</h2>
+      </div>
+    </div>
+    <div class="cards-wrapper">${dishes}</div>
+  </div>
+`;
 //#endregion
 
 //#region BASKET TEMPLATES
-function basketContentTemplate(basketCards, basketTable) {
-  return /*html*/ `
-    <div class="basket-cards">${basketCards}</div>
-    <div class="confirm-order">${basketTable}</div>
-  `;
-}
+const basketContentTemplate = (basketCards, basketTable) => /*html*/ `
+  <div class="basket-cards" id="basket-cards-wrapper">${basketCards}</div>
+  <div class="confirm-order" id="basket-total-table">${basketTable}</div>
+`;
 
-function basketCardTemplate(dish, basketDish, formattedPrice) {
-  return /*html*/ `
-    <div class="basket-card">
-      <div class="basket-dish">
-        <p class="dish-name">${basketDish.amount}x ${dish.name}
-        </p>
-        <svg class="icon-delete" onclick="deleteFromBasket('${basketDish.dishID}')">
-          <use href="./assets/icons/icons.svg#icon-delete"></use>
+const basketCardTemplate = (dish, basketDish, formattedPrice) => /*html*/ `
+  <div class="basket-card">
+    <div class="basket-dish">
+      <p class="dish-name">${dish.name}
+      </p>
+      <svg class="icon-delete" onclick="deleteFromBasket('${basketDish.dishID}')">
+        <use href="./assets/icons/icons.svg#icon-delete"></use>
+      </svg>
+    </div>
+    <div class="basket-info">
+      <div class="basket-amount">
+        <svg class="change-amount" id="btn-sub-${dish.dishID}" onclick="changeAmount('${dish.dishID}', 'sub', this)">
+          <use href="./assets/icons/icons.svg#icon-sub"></use>
+        </svg>
+        <p class="amount-value" id="amount-${dish.dishID}">${basketDish.amount}</p>
+        <svg class="change-amount" onclick="changeAmount('${dish.dishID}', 'add', this)">
+          <use href="./assets/icons/icons.svg#icon-add"></use>
         </svg>
       </div>
-      <div class="basket-info">
-        <div class="basket-amount">
-          <svg class="change-amount" id="btn-sub-${dish.dishID}" onclick="changeAmount(${basketDish.dishID}, 'sub')">
-            <use href="./assets/icons/icons.svg#icon-sub"></use>
-          </svg>
-          <span class="amount-value" id="">${basketDish.amount}</span>
-          <svg class="change-amount" onclick="changeAmount(${basketDish.dishID}, 'add')">
-            <use href="./assets/icons/icons.svg#icon-add"></use>
-          </svg>
-        </div>
-        <p>${formattedPrice}</p>
-      </div>
+      <p id="basket-card-price-${dish.dishID}">${formattedPrice}</p>
     </div>
-  `;
-}
+  </div>
+`;
 
-function basketConfirmOrderTemplate(subtotal, total, formattedFee) {
-  return /*html*/ `
-    <table class="costs">
-      <tr>
-        <th>Subtotal</th>
-        <td>${subtotal}</td>
-      </tr>
-      <tr>
-        <th>Delivery fee</th>
-        <td>${formattedFee}</td>
-      </tr>
-      <tr class="total">
-        <th>Total</th>
-        <td>${total}</td>
-      </tr>
-    </table>
-    <button class="btn-buy">Buy now (${total})</button>
-  `;
-}
+const basketConfirmOrderTemplate = (subtotal, total, formattedFee) => /*html*/ `
+  <table class="costs">
+    <tr>
+      <th>Subtotal</th>
+      <td id="basket-subtotal">${subtotal}</td>
+    </tr>
+    <tr>
+      <th>Delivery fee</th>
+      <td>${formattedFee}</td>
+    </tr>
+    <tr class="total">
+      <th>Total</th>
+      <td id="basket-total">${total}</td>
+    </tr>
+  </table>
+  <button class="btn-buy" id="btn-buy">Buy now (${total})</button>
+`;
 //#endregion
 
 //#region ASSETS TEMPLATES
-function addedBtnContent(amount) {
-  return /*html*/ `Added ${amount}`;
-}
+const addedBtnContent = (amount) => /*html*/ `Added ${amount}`;
 //#endregion

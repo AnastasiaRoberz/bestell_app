@@ -1,17 +1,17 @@
 //#region
-function formatPrice(value) {
-  return value.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
-}
+const formatPrice = (value) =>
+  value.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 
-function getDishById(dishID) {
-  for (const currentCategory of menu) {
-    const foundDish = currentCategory.dishes.find(
-      (dish) => dish.dishID === dishID,
-    );
-    if (foundDish) return foundDish;
+const getDishById = (dishID) => {
+  for (const category of menu) {
+    const found = category.dishes.find((dish) => dish.dishID === dishID);
+    if (found) return found;
   }
   return null;
-}
+};
+
+const getBasketDishById = (id) =>
+  basket.find((item) => item.dishID === id) || null;
 //#endregion
 
 //#region CALC FUNCTIONS
@@ -19,19 +19,38 @@ function calcBasketSubtotal() {
   let subtotal = 0;
   for (const basketDish of basket) {
     const dish = getDishById(basketDish.dishID);
-    subtotal += dish.price * basketDish.amount;
+    if (dish) subtotal += dish.price * basketDish.amount;
   }
   return subtotal;
 }
 
-function calcBasketTotal() {
-  return formatPrice(calcBasketSubtotal() + deliveryFee);
-}
+const calcBasketTotal = () => formatPrice(calcBasketSubtotal() + deliveryFee);
 //#endregion
 
 //#region RENDER SINGLE VALUES
-function renderAmount(currentDish) {}
+function renderAmount(dish) {
+  const amount = getBasketDishById(dish.dishID)?.amount || 0;
 
+  const amountRef = document.getElementById(`amount-${dish.dishID}`);
+  const cardPriceRef = document.getElementById(
+    `basket-card-price-${dish.dishID}`,
+  );
+  const cardBtnRef = document.getElementById(`add-to-basket${dish.dishID}`);
+
+  if (amountRef) amountRef.innerText = amount;
+  if (cardPriceRef) cardPriceRef.innerText = formatPrice(dish.price * amount);
+  if (cardBtnRef) cardBtnRef.innerText = addedBtnContent(amount);
+}
+
+function updateBasketTotals() {
+  const subtotalRef = document.getElementById("basket-subtotal");
+  const totalRef = document.getElementById("basket-total");
+  const buyBtnRef = document.getElementById("btn-buy");
+
+  if (subtotalRef) subtotalRef.innerText = formatPrice(calcBasketSubtotal());
+  if (totalRef) totalRef.innerText = calcBasketTotal();
+  if (buyBtnRef) buyBtnRef.innerText = `Buy now (${calcBasketTotal()})`;
+}
 //#endregion
 
 //#region STORAGE
