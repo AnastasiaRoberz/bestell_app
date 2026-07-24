@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="./styles/header-footer.css" />
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/menu.css" />
     <link rel="stylesheet" href="./styles/basket.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
 
     <script src="./scripts/data.js" defer></script>
+    <script src="./scripts/helper-functions.js" defer></script>
     <script src="./scripts/template.js" defer></script>
     <script src="script.js" defer></script>
   </head>
@@ -61,76 +63,16 @@
         </p>
       </section>
 
-      <section class="menu-wrapper" id="menu-wrapper">
-        <div class="category">
-          <img
-            class="dish-logo"
-            src="./assets/icons/icon-burger.svg"
-            alt="Icon eines Burgers"
-          />
-          <h2>Burger & Sandwiches</h2>
-        </div>
-        <div class="cards-wrapper">
-          <article class="card">
-            <img
-              class="dish-img"
-              src="./assets/pngs/dishes/burger/veggie-mushroom.jpg"
-              alt=""
-            />
-            <div class="dish">
-              <h3>Veggie mushroom black burger</h3>
-              <p class="dish-description">
-                Mixed green salad, Tomatoes, Edamame, Mushrooms
-              </p>
-            </div>
-            <div class="order">
-              <p class="price">16,90€</p>
-              <button class="add-to-basket added">Added <span>1</span></button>
-            </div>
-          </article>
-        </div>
-      </section>
+      <div class="content">
+        <section class="menu-wrapper" id="menu-wrapper"></section>
 
-      <section class="basket">
-        <h4>Your Basket</h4>
-        <div class="basket-content">
-          <div class="basket-card">
-            <div class="basket-dish">
-              <p class="dish-name">
-                <span class="amount">1x</span> Veggie mushroom black burger
-              </p>
-              <svg class="icon-delete">
-                <use href="./assets/icons/icons.svg#icon-delete"></use>
-              </svg>
-            </div>
-            <div class="basket-info">
-              <div class="basket-amount">
-                <button class="sub">-</button>
-                <p>1</p>
-                <button class="add">+</button>
-              </div>
-              <p>16,90€</p>
-            </div>
-          </div>
+        <div class="basket-wrapper">
+          <section class="basket" id="basket">
+            <h4>Your Basket</h4>
+            <div class="basket-content" id="basket-content"></div>
+          </section>
         </div>
-        <div class="confirm-order">
-          <table class="costs">
-            <tr>
-              <th>Subtotal</th>
-              <td>36,70€</td>
-            </tr>
-            <tr>
-              <th>Delivery fee</th>
-              <td>4,99€</td>
-            </tr>
-            <tr class="total">
-              <th>Total</th>
-              <td>41,69€</td>
-            </tr>
-          </table>
-          <button class="btn-buy">Buy now (<span>41,69€</span>)</button>
-        </div>
-      </section>
+      </div>
     </main>
 
     <footer>
