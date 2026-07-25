@@ -37,7 +37,7 @@
   color: white;
   font-weight: 700;
   font-size: 2rem;
-  background-color: orange;
+  background-color: var(--orange);
   padding: 13px 37px;
   border-radius: 60px;
   width: 350px;
@@ -60,4 +60,22 @@
   height: 16px;
   fill: var(--beige-light);
   display: block;
+}
+
+.basket-cards::-webkit-scrollbar {
+  width: 8px;
+}
+
+.basket-cards::-webkit-scrollbar-track {
+  background: var(--grey);
+  border-radius: 4px;
+}
+
+.basket-cards::-webkit-scrollbar-thumb {
+  background: var(--beige-light);
+  border-radius: 4px;
+}
+
+.basket-cards::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
 }
