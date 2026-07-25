@@ -6,6 +6,11 @@
     <title>Bestell APP</title>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.svg" />
 
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="./styles/variables.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
@@ -14,6 +19,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./styles/menu.css" />
     <link rel="stylesheet" href="./styles/basket.css" />
+    <link rel="stylesheet" href="./styles/dialog.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
 
     <script src="./scripts/data.js" defer></script>
@@ -73,6 +79,27 @@
           </section>
         </div>
       </div>
+
+      <dialog
+        id="confirm-order-dialog"
+        onclick="closeDialog()"
+        onclose="closeDialog()"
+      >
+        <div class="dialog-content" onclick="bubblingProtection(event)">
+          <button class="btn-close" onclick="closeDialog()">
+            <i class="bi bi-x"></i>
+          </button>
+          <img
+            class="icon-order-confirmed"
+            src="./assets/icons/icon-order-confirmed.svg"
+            alt=""
+          />
+          <div class="dialog-txt">
+            <p class="txt-order-confirmed">Order confirmed!</p>
+            <p class="txt-on-the-way">Your food is on the way!</p>
+          </div>
+        </div>
+      </dialog>
     </main>
 
     <footer>

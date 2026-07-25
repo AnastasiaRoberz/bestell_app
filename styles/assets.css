@@ -1,3 +1,7 @@
+.icon-filled {
+  display: none;
+}
+
 .add-to-basket {
   background-color: white;
   border-radius: 20px;
@@ -23,11 +27,6 @@
   fill: transparent;
 }
 
-.amount-value {
-  line-height: 0;
-  padding-bottom: 6px;
-}
-
 .icon-delete {
   height: 20px;
   width: 18px;
@@ -41,9 +40,24 @@
   background-color: orange;
   padding: 13px 37px;
   border-radius: 60px;
-  width: fit-content;
+  width: 350px;
 }
 
 .disable {
   display: none;
+}
+
+.btn-close {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-close {
+  width: 16px;
+  height: 16px;
+  fill: var(--beige-light);
+  display: block;
 }
