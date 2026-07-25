@@ -52,19 +52,21 @@ const basketCardTemplate = (dish, basketDish, formattedPrice) => /*html*/ `
     <div class="basket-dish">
       <p class="dish-name">${dish.name}
       </p>
-      <svg class="icon-delete" onclick="deleteFromBasket('${basketDish.dishID}')">
-        <use href="./assets/icons/icons.svg#icon-delete"></use>
-      </svg>
+      <button class="icon-delete btn-icon" onclick="deleteFromBasket('${basketDish.dishID}')">
+        <i class="bi bi-trash3"></i>
+      </button>
     </div>
     <div class="basket-info">
       <div class="basket-amount">
-        <svg class="change-amount" id="btn-sub-${dish.dishID}" onclick="changeAmount('${dish.dishID}', 'sub', this)">
-          <use href="./assets/icons/icons.svg#icon-sub"></use>
-        </svg>
+        <button class="change-amount btn-icon" id="btn-sub-${dish.dishID}" onclick="changeAmount('${dish.dishID}', 'sub', this)">
+          <i class="bi bi-dash-circle icon-outline"></i>
+          <i class="bi bi-dash-circle-fill icon-filled"></i>
+        </button>
         <p class="amount-value" id="amount-${dish.dishID}">${basketDish.amount}</p>
-        <svg class="change-amount" onclick="changeAmount('${dish.dishID}', 'add', this)">
-          <use href="./assets/icons/icons.svg#icon-add"></use>
-        </svg>
+        <button class="change-amount btn-icon" onclick="changeAmount('${dish.dishID}', 'add', this)">
+          <i class="bi bi-plus-circle icon-outline"></i>
+          <i class="bi bi-plus-circle-fill icon-filled"></i>
+        </button>
       </div>
       <p id="basket-card-price-${dish.dishID}">${formattedPrice}</p>
     </div>
@@ -86,7 +88,7 @@ const basketConfirmOrderTemplate = (subtotal, total, formattedFee) => /*html*/ `
       <td id="basket-total">${total}</td>
     </tr>
   </table>
-  <button class="btn-buy" id="btn-buy">Buy now (${total})</button>
+  <button class="btn-buy" id="btn-buy" onclick="confirmOrder()">Buy now (${total})</button>
 `;
 //#endregion
 
