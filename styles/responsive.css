@@ -1,0 +1,21 @@
+@media screen and (max-width: 768px) {
+  nav {
+    background-color: var(--black);
+    height: 78px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    position: fixed;
+    bottom: 0;
+  }
+
+  footer {
+    margin-bottom: 78px;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+}
