@@ -80,12 +80,12 @@ const basketConfirmOrderTemplate = (subtotal, total, formattedFee) => /*html*/ `
       <td id="basket-subtotal">${subtotal}</td>
     </tr>
     <tr>
-      <th>Delivery fee</th>
-      <td>${formattedFee}</td>
+      <th class="delivery-fee">Delivery fee</th>
+      <td class="delivery-fee">${formattedFee}</td>
     </tr>
-    <tr class="total">
-      <th>Total</th>
-      <td id="basket-total">${total}</td>
+    <tr class="total-row">
+      <th class="total">Total</th>
+      <td class="total" id="basket-total">${total}</td>
     </tr>
   </table>
   <button class="btn-buy" id="btn-buy" onclick="confirmOrder()">Buy now (${total})</button>
