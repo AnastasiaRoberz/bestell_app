@@ -1,6 +1,8 @@
 //#region
 const formatPrice = (value) =>
-  value.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+  value
+    .toLocaleString("de-DE", { style: "currency", currency: "EUR" })
+    .replace(/\s+/, "");
 
 const getDishById = (dishID) => {
   for (const category of menu) {
@@ -25,6 +27,8 @@ function calcBasketSubtotal() {
 }
 
 const calcBasketTotal = () => formatPrice(calcBasketSubtotal() + deliveryFee);
+
+const deleteAllFromBasket = () => (basket = []);
 //#endregion
 
 //#region RENDER SINGLE VALUES
@@ -50,6 +54,22 @@ function updateBasketTotals() {
   if (subtotalRef) subtotalRef.innerText = formatPrice(calcBasketSubtotal());
   if (totalRef) totalRef.innerText = calcBasketTotal();
   if (buyBtnRef) buyBtnRef.innerText = `Buy now (${calcBasketTotal()})`;
+}
+//#endregion
+
+//#region DIALOG
+function openDialog() {
+  dialogRef.showModal();
+  dialogRef.classList.add("opened");
+}
+
+function closeDialog() {
+  dialogRef.close();
+  dialogRef.classList.remove("opened");
+}
+
+function bubblingProtection(event) {
+  event.stopPropagation();
 }
 //#endregion
 

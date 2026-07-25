@@ -2,6 +2,7 @@
 const menuRef = document.getElementById("menu-wrapper");
 const basketRef = document.getElementById("basket");
 const basketContentRef = document.getElementById("basket-content");
+const dialogRef = document.getElementById("confirm-order-dialog");
 let basket = [];
 const deliveryFee = 4.99;
 //#endregion
@@ -137,6 +138,19 @@ function changeAmount(dishID, type) {
   if (type === "sub" && basketItem.amount === 0) deleteFromBasket(dishID);
   updateBasketTotals();
   saveToLocalStorage();
+}
+
+function confirmOrder() {
+  for (const basketDish of basket) {
+    const btnRef = document.getElementById(`add-to-basket${basketDish.dishID}`);
+    btnRef.innerText = "Add to basket";
+    btnRef.disabled = false;
+    btnRef.classList.remove("added");
+  }
+  deleteAllFromBasket();
+  saveToLocalStorage();
+  renderBasket();
+  openDialog();
 }
 //#endregion
 
