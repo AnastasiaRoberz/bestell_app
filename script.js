@@ -79,9 +79,9 @@ function renderAllBasketCards() {
 
 function renderBasketCard(basketDish) {
   const dish = getDishById(basketDish.dishID);
+  let calcPrice = formatPrice(dish.price * basketDish.amount);
 
-  if (dish)
-    return basketCardTemplate(dish, basketDish, formatPrice(dish.price));
+  return basketCardTemplate(dish, basketDish, calcPrice);
 }
 //#endregion
 
