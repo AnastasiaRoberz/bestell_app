@@ -75,4 +75,5 @@
   display: flex;
   width: 100%;
   max-width: 1440px;
+  gap: 173px;
 }

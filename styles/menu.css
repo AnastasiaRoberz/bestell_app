@@ -54,6 +54,7 @@
 .category-logo {
   height: 91px;
   width: auto;
+  margin-left: 48px;
 }
 
 .cards-wrapper {
@@ -61,13 +62,12 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
-  padding-left: 80px;
+  padding-left: 120px;
   flex: 1;
 }
 
 .card {
-  width: 713px;
-  min-width: 500px;
+  min-width: 400px;
   height: 141px;
   background-color: var(--beige-light);
   border-radius: 12px;

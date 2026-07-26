@@ -1,7 +1,6 @@
 //#region GLOBAL VARIABLES
 const menuRef = document.getElementById("menu-wrapper");
-const basketRef = document.getElementById("basket");
-const basketContentRef = document.getElementById("basket-content");
+const basketRef = document.getElementById("basket-content");
 const dialogRef = document.getElementById("confirm-order-dialog");
 let basket = [];
 const deliveryFee = 4.99;
@@ -51,10 +50,8 @@ function renderDishCard(category) {
 //#region RENDER BASKET
 function renderBasket() {
   if (basket.length === 0) {
-    basketRef.classList.replace("basket-opened", "basket");
-    basketContentRef.innerHTML = "";
+    basketRef.innerHTML = basketEmptyTemplate();
   } else {
-    basketRef.classList.replace("basket", "basket-opened");
     const basketCards = renderAllBasketCards();
     const basketTable = basketConfirmOrderTemplate(
       formatPrice(calcBasketSubtotal()),
