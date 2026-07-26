@@ -52,34 +52,22 @@ function renderBasket() {
   if (basket.length === 0) {
     basketRef.innerHTML = basketEmptyTemplate();
   } else {
-    const basketCards = renderAllBasketCards();
-    const basketTable = basketConfirmOrderTemplate(
-      formatPrice(calcBasketSubtotal()),
-      calcBasketTotal(),
-      formatPrice(deliveryFee),
-    );
-    basketContentRef.innerHTML = basketContentTemplate(
-      basketCards,
-      basketTable,
-    );
+    basketRef.innerHTML = basketContentTemplate();
+    renderAllBasketCards();
+    renderTotals();
   }
 }
 
 function renderAllBasketCards() {
-  let basketCards = "";
+  const basketCardsWrapper = document.getElementById("basket-cards-wrapper");
   for (const basketDish of basket) {
-    const dish = getDishById(basketDish.dishID);
-    basketCards += renderBasketCard(basketDish);
+    basketCardsWrapper.innerHTML += renderBasketCard(basketDish);
+    renderAmount(basketDish);
   }
-  return basketCards;
 }
 
-function renderBasketCard(basketDish) {
-  const dish = getDishById(basketDish.dishID);
-  let calcPrice = formatPrice(dish.price * basketDish.amount);
-
-  return basketCardTemplate(dish, basketDish, calcPrice);
-}
+const renderBasketCard = (basketDish) =>
+  basketCardTemplate(getDishById(basketDish.dishID));
 //#endregion
 
 //#region USER INTERACTIONS
@@ -107,7 +95,7 @@ function addToBasket(dishID, btnRef) {
     btnRef.classList.add("added");
     btnRef.disabled = true;
   }
-  updateBasketTotals();
+  renderTotals();
   saveToLocalStorage();
 }
 
@@ -122,7 +110,8 @@ function deleteFromBasket(dishID) {
   cardBtnRef.disabled = false;
 
   saveToLocalStorage();
-  renderBasket();
+  renderAllBasketCards();
+  renderTotals();
 }
 
 function changeAmount(dishID, type) {
@@ -131,9 +120,9 @@ function changeAmount(dishID, type) {
 
   type === "add" ? basketItem.amount++ : basketItem.amount--;
 
-  renderAmount(dish);
+  renderAmount(basketItem);
   if (type === "sub" && basketItem.amount === 0) deleteFromBasket(dishID);
-  updateBasketTotals();
+  renderTotals();
   saveToLocalStorage();
 }
 

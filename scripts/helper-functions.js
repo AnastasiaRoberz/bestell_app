@@ -4,56 +4,54 @@ const formatPrice = (value) =>
     .toLocaleString("de-DE", { style: "currency", currency: "EUR" })
     .replace(/\s+/, "");
 
-const getDishById = (dishID) => {
+const getDishById = (basketDishID) => {
+  console.log(basketDishID);
+
   for (const category of menu) {
-    const found = category.dishes.find((dish) => dish.dishID === dishID);
+    const found = category.dishes.find((dish) => dish.dishID === basketDishID);
     if (found) return found;
   }
   return null;
 };
 
-const getBasketDishById = (id) =>
-  basket.find((item) => item.dishID === id) || null;
+const getBasketDishById = (dishID) =>
+  basket.find((basketItem) => basketItem.dishID === dishID) || null;
 //#endregion
 
 //#region CALC FUNCTIONS
-function calcBasketSubtotal() {
-  let subtotal = 0;
-  for (const basketDish of basket) {
-    const dish = getDishById(basketDish.dishID);
-    if (dish) subtotal += dish.price * basketDish.amount;
-  }
-  return subtotal;
-}
 
-const calcBasketTotal = () => formatPrice(calcBasketSubtotal() + deliveryFee);
-
-const deleteAllFromBasket = () => (basket = []);
+const deleteAllFromBasket = () => {
+  basket = [];
+  saveToLocalStorage();
+};
 //#endregion
 
 //#region RENDER SINGLE VALUES
-function renderAmount(dish) {
-  const amount = getBasketDishById(dish.dishID)?.amount || 0;
+const renderAmount = (basketDish) => {
+  const dish = getDishById(basketDish.dishID);
+  document.getElementById(`basket-amount-${basketDish.dishID}`).innerText =
+    basketDish.amount;
+  document.getElementById(`basket-card-price-${basketDish.dishID}`).innerText =
+    formatPrice(dish.price * basketDish.amount);
+  document.getElementById(`add-to-basket${dish.dishID}`).innerText =
+    addedBtnContent(basketDish.amount);
+};
 
-  const amountRef = document.getElementById(`amount-${dish.dishID}`);
-  const cardPriceRef = document.getElementById(
-    `basket-card-price-${dish.dishID}`,
+function renderTotals() {
+  let subtotal = 0;
+  let total = 0;
+
+  for (const basketDish of basket) {
+    const dish = getDishById(basketDish.dishID);
+    subtotal += dish.price * basketDish.amount;
+  }
+
+  document.getElementById("basket-subtotal").innerText = formatPrice(subtotal);
+  document.getElementById("basket-total").innerText = formatPrice(
+    subtotal + deliveryFee,
+    (document.getElementById("delivery-fee").innerText =
+      formatPrice(deliveryFee)),
   );
-  const cardBtnRef = document.getElementById(`add-to-basket${dish.dishID}`);
-
-  if (amountRef) amountRef.innerText = amount;
-  if (cardPriceRef) cardPriceRef.innerText = formatPrice(dish.price * amount);
-  if (cardBtnRef) cardBtnRef.innerText = addedBtnContent(amount);
-}
-
-function updateBasketTotals() {
-  const subtotalRef = document.getElementById("basket-subtotal");
-  const totalRef = document.getElementById("basket-total");
-  const buyBtnRef = document.getElementById("btn-buy");
-
-  if (subtotalRef) subtotalRef.innerText = formatPrice(calcBasketSubtotal());
-  if (totalRef) totalRef.innerText = calcBasketTotal();
-  if (buyBtnRef) buyBtnRef.innerText = `Buy now (${calcBasketTotal()})`;
 }
 //#endregion
 
