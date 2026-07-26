@@ -42,6 +42,14 @@ const categoryTemplate = (currentCategory, dishes) => /*html*/ `
 //#endregion
 
 //#region BASKET TEMPLATES
+const basketEmptyTemplate = () => /*html*/ `
+  <p class="basket-txt">Nothing here yet.<br>
+  Go ahead and choose something delicious!</p>
+  <svg class="icon-basket-empty">
+    <use href="./assets/icons/icons.svg#icon-basket"></use>
+  </svg>
+`;
+
 const basketContentTemplate = (basketCards, basketTable) => /*html*/ `
   <div class="basket-cards" id="basket-cards-wrapper">${basketCards}</div>
   <div class="confirm-order" id="basket-total-table">${basketTable}</div>
