@@ -42,53 +42,52 @@ const categoryTemplate = (currentCategory, dishes) => /*html*/ `
 //#endregion
 
 //#region BASKET TEMPLATES
-const basketContentTemplate = (basketCards, basketTable) => /*html*/ `
-  <div class="basket-cards" id="basket-cards-wrapper">${basketCards}</div>
-  <div class="confirm-order" id="basket-total-table">${basketTable}</div>
+const basketContentTemplate = () => /*html*/ `
+  
+  <div class="basket-cards" id="basket-cards-wrapper"></div>
+  <div class="confirm-order">
+    <table class="costs">
+    <tr>
+      <th>Subtotal</th>
+      <td id="basket-subtotal"></td>
+    </tr>
+    <tr>
+      <th>Delivery fee</th>
+      <td id="delivery-fee"></td>
+    </tr>
+    <tr class="total">
+      <th>Total</th>
+      <td id="basket-total"></td>
+    </tr>
+  </table>
+  <button class="btn-buy" onclick="confirmOrder()">Buy now</button>
+  </div>
 `;
 
-const basketCardTemplate = (dish, basketDish, formattedPrice) => /*html*/ `
+const basketCardTemplate = (dish) => /*html*/ `
   <div class="basket-card">
     <div class="basket-dish">
       <p class="dish-name">${dish.name}
       </p>
-      <button class="icon-delete btn-icon" onclick="deleteFromBasket('${basketDish.dishID}')">
+      <button class="icon-delete btn-icon" onclick="deleteFromBasket('${dish.dishID}')">
         <i class="bi bi-trash3"></i>
       </button>
     </div>
     <div class="basket-info">
       <div class="basket-amount">
-        <button class="change-amount btn-icon" id="btn-sub-${dish.dishID}" onclick="changeAmount('${dish.dishID}', 'sub', this)">
+        <button class="change-amount btn-icon" onclick="changeAmount('${dish.dishID}', 'sub')">
           <i class="bi bi-dash-circle icon-outline"></i>
           <i class="bi bi-dash-circle-fill icon-filled"></i>
         </button>
-        <p class="amount-value" id="amount-${dish.dishID}">${basketDish.amount}</p>
-        <button class="change-amount btn-icon" onclick="changeAmount('${dish.dishID}', 'add', this)">
+        <p class="amount-value" id="basket-amount-${dish.dishID}"></p>
+        <button class="change-amount btn-icon" onclick="changeAmount('${dish.dishID}', 'add')">
           <i class="bi bi-plus-circle icon-outline"></i>
           <i class="bi bi-plus-circle-fill icon-filled"></i>
         </button>
       </div>
-      <p id="basket-card-price-${dish.dishID}">${formattedPrice}</p>
+      <p id="basket-card-price-${dish.dishID}"></p>
     </div>
   </div>
-`;
-
-const basketConfirmOrderTemplate = (subtotal, total, formattedFee) => /*html*/ `
-  <table class="costs">
-    <tr>
-      <th>Subtotal</th>
-      <td id="basket-subtotal">${subtotal}</td>
-    </tr>
-    <tr>
-      <th>Delivery fee</th>
-      <td>${formattedFee}</td>
-    </tr>
-    <tr class="total">
-      <th>Total</th>
-      <td id="basket-total">${total}</td>
-    </tr>
-  </table>
-  <button class="btn-buy" id="btn-buy" onclick="confirmOrder()">Buy now (${total})</button>
 `;
 //#endregion
 
