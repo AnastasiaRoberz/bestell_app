@@ -53,15 +53,16 @@ html {
   font-size: 16px;
   font-family: "Palanquin";
   font-weight: 400;
-  line-height: 120%;
   text-align: center;
   color: var(--black);
+  line-height: 1;
 }
 
 h1 {
   font-family: "Palanquin Dark";
   font-weight: 700;
   font-size: clamp(2.5rem, calc(2.324rem + 0.751vw), 3rem);
+  line-height: 120%;
 }
 
 h2 {
@@ -69,7 +70,7 @@ h2 {
   font-size: clamp(2rem, calc(1.824rem + 0.751vw), 2.5rem);
   color: white;
   padding-bottom: 6px;
-  line-height: 120%;
+  line-height: 70%;
 }
 
 h3 {
@@ -82,9 +83,18 @@ h4 {
   font-weight: 700;
   font-size: 32px;
   color: var(--beige-light);
+  line-height: 120%;
 }
 
-footer {
-  font-size: 1.125rem;
-  color: white;
+/* DIALOG */
+.txt-order-confirmed {
+  font-weight: 700;
+  font-size: clamp(2.25rem, calc(2.118rem + 0.563vw), 2.625rem);
+  line-height: 120%;
+}
+
+.txt-on-the-way {
+  font-weight: 700;
+  font-size: clamp(1.5rem, calc(1.39rem + 0.469vw), 1.813rem);
+  line-height: 120%;
 }

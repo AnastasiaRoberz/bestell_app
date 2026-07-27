@@ -14,17 +14,10 @@ header {
     align-items: center;
     padding: 0 47px;
   }
+}
 
-  .icon-logo {
-    height: 37px;
-    width: 90px;
-    margin-left: 72px;
-  }
-
-  .icon-burger-nav {
-    height: 60px;
-    width: auto;
-  }
+nav {
+  display: none;
 }
 
 footer {
@@ -33,15 +26,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  gap: 80px;
   background-color: var(--orange);
   padding: 32px 0;
-}
-
-.footer-content {
-  display: flex;
-  gap: 80px;
-}
-
-nav {
-  display: none;
+  font-size: 1.125rem;
+  color: white;
 }

@@ -16,12 +16,17 @@ const getBasketDishById = (dishID) =>
   basket.find((basketItem) => basketItem.dishID === dishID) || null;
 //#endregion
 
-//#region CALC FUNCTIONS
-
+//#region
 const deleteAllFromBasket = () => {
   basket = [];
   saveToLocalStorage();
 };
+
+function getCategoryDetailClass(categoryName) {
+  if (categoryName === "Burger") return "burger-details";
+  if (categoryName === "Pizza") return "pizza-details";
+  return "";
+}
 //#endregion
 
 //#region RENDER SINGLE VALUES

@@ -14,12 +14,10 @@ function init() {
 
 //#region RENDER CATEGORIES
 function renderCategories() {
-  let categoriesContent = "";
   for (const category of menu) {
     const dishes = renderDishCard(category);
-    categoriesContent += categoryTemplate(category, dishes);
+    menuRef.innerHTML += categoryTemplate(category, dishes);
   }
-  menuRef.innerHTML = categoriesContent;
 }
 
 function renderDishCard(category) {
