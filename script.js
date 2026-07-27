@@ -25,21 +25,9 @@ function renderDishCard(category) {
   for (const dish of category.dishes) {
     const formattedPrice = formatPrice(dish.price);
     const basketItem = getBasketDishById(dish.dishID);
-    let btnText = "Add to basket";
-    let btnClass = "";
-    let isDisabled = "";
-    if (basketItem) {
-      btnText = "Added " + basketItem.amount;
-      btnClass = "added";
-      isDisabled = "disabled";
-    }
-    dishes += dishCardTemplate(
-      dish,
-      formattedPrice,
-      btnClass,
-      btnText,
-      isDisabled,
-    );
+    const btn = getBtnParameters(basketItem);
+
+    dishes += dishCardTemplate(dish, formattedPrice, btn.cssClass, btn.text, btn.disabled);
   }
   return dishes;
 }
@@ -66,8 +54,7 @@ function renderAllBasketCards() {
   }
 }
 
-const renderBasketCard = (basketDish) =>
-  basketCardTemplate(getDishById(basketDish.dishID));
+const renderBasketCard = (basketDish) => basketCardTemplate(getDishById(basketDish.dishID));
 //#endregion
 
 //#region USER INTERACTIONS
@@ -78,28 +65,12 @@ function showBasket() {
 
 function addToBasket(dishID, btnRef) {
   const basketItem = getBasketDishById(dishID);
-  const dish = getDishById(dishID);
-  const basketCardWrapper = document.getElementById("basket-cards-wrapper");
 
   if (basketItem) {
     basketItem.amount++;
     renderAmount(basketItem);
   } else {
-    basket.push({ "dishID": dishID, "amount": 1 });
-
-    if (basket.length === 1) {
-      renderBasket();
-    } else {
-      basketCardWrapper.innerHTML += renderBasketCard(
-        basket[basket.length - 1],
-      );
-      renderAmount(basket[basket.length - 1]);
-      renderBasketAmount();
-    }
-
-    btnRef.innerText = addedBtnContent(1);
-    btnRef.classList.add("added");
-    btnRef.disabled = true;
+    handleNewBasketItem(dishID, btnRef);
   }
   renderTotals();
   saveToLocalStorage();

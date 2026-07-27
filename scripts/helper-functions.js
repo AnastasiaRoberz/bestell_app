@@ -1,8 +1,5 @@
 //#region
-const formatPrice = (value) =>
-  value
-    .toLocaleString("de-DE", { style: "currency", currency: "EUR" })
-    .replace(/\s+/, "");
+const formatPrice = (value) => value.toLocaleString("de-DE", { style: "currency", currency: "EUR" }).replace(/\s+/, "");
 
 const getDishById = (basketDishID) => {
   for (const category of menu) {
@@ -12,8 +9,7 @@ const getDishById = (basketDishID) => {
   return null;
 };
 
-const getBasketDishById = (dishID) =>
-  basket.find((basketItem) => basketItem.dishID === dishID) || null;
+const getBasketDishById = (dishID) => basket.find((basketItem) => basketItem.dishID === dishID) || null;
 //#endregion
 
 //#region
@@ -27,17 +23,19 @@ function getCategoryDetailClass(categoryName) {
   if (categoryName === "Pizza") return "pizza-details";
   return "";
 }
+
+function getBtnParameters(basketItem) {
+  if (!basketItem) return { text: "Add to basket", cssClass: "", disabled: "" };
+  return { text: "Added " + basketItem.amount, cssClass: "added", disabled: "disabled" };
+}
 //#endregion
 
 //#region RENDER SINGLE VALUES
 const renderAmount = (basketDish) => {
   const dish = getDishById(basketDish.dishID);
-  document.getElementById(`basket-amount-${basketDish.dishID}`).innerText =
-    basketDish.amount;
-  document.getElementById(`basket-card-price-${basketDish.dishID}`).innerText =
-    formatPrice(dish.price * basketDish.amount);
-  document.getElementById(`add-to-basket${dish.dishID}`).innerText =
-    addedBtnContent(basketDish.amount);
+  document.getElementById(`basket-amount-${basketDish.dishID}`).innerText = basketDish.amount;
+  document.getElementById(`basket-card-price-${basketDish.dishID}`).innerText = formatPrice(dish.price * basketDish.amount);
+  document.getElementById(`add-to-basket${dish.dishID}`).innerText = addedBtnContent(basketDish.amount);
   renderBasketAmount();
 };
 
@@ -70,9 +68,24 @@ function renderTotals() {
   document.getElementById("basket-subtotal").innerText = formatPrice(subtotal);
   document.getElementById("basket-total").innerText = formatPrice(
     subtotal + deliveryFee,
-    (document.getElementById("delivery-fee").innerText =
-      formatPrice(deliveryFee)),
+    (document.getElementById("delivery-fee").innerText = formatPrice(deliveryFee)),
   );
+}
+
+function handleNewBasketItem(dishID, btnRef) {
+  basket.push({ "dishID": dishID, "amount": 1 });
+  const basketCardWrapper = document.getElementById("basket-cards-wrapper");
+
+  if (basket.length === 1) {
+    renderBasket();
+  } else {
+    basketCardWrapper.innerHTML += renderBasketCard(basket[basket.length - 1]);
+    renderAmount(basket[basket.length - 1]);
+    renderBasketAmount();
+  }
+  btnRef.innerText = addedBtnContent(1);
+  btnRef.classList.add("added");
+  btnRef.disabled = true;
 }
 //#endregion
 

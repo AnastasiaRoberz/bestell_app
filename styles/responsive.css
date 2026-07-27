@@ -158,6 +158,10 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+
+    .rating {
+      order: -1;
+    }
   }
 
   .category-header {
