@@ -55,11 +55,13 @@ function renderBasket() {
     basketRef.innerHTML = basketContentTemplate();
     renderAllBasketCards();
     renderTotals();
+    renderBasketAmount();
   }
 }
 
 function renderAllBasketCards() {
   const basketCardsWrapper = document.getElementById("basket-cards-wrapper");
+  basketCardsWrapper.innerHTML = "";
   for (const basketDish of basket) {
     basketCardsWrapper.innerHTML += renderBasketCard(basketDish);
     renderAmount(basketDish);
@@ -71,6 +73,11 @@ const renderBasketCard = (basketDish) =>
 //#endregion
 
 //#region USER INTERACTIONS
+function showBasket() {
+  const mobileBasketRef = document.getElementById("basket-wrapper");
+  mobileBasketRef.classList.toggle("opened");
+}
+
 function addToBasket(dishID, btnRef) {
   const basketItem = getBasketDishById(dishID);
   const dish = getDishById(dishID);
@@ -78,7 +85,7 @@ function addToBasket(dishID, btnRef) {
 
   if (basketItem) {
     basketItem.amount++;
-    renderAmount(dish);
+    renderAmount(basketItem);
   } else {
     basket.push({ "dishID": dishID, "amount": 1 });
 
@@ -88,7 +95,8 @@ function addToBasket(dishID, btnRef) {
       basketCardWrapper.innerHTML += renderBasketCard(
         basket[basket.length - 1],
       );
-      updateBasketTotals();
+      renderAmount(basket[basket.length - 1]);
+      renderBasketAmount();
     }
 
     btnRef.innerText = addedBtnContent(1);
@@ -109,9 +117,8 @@ function deleteFromBasket(dishID) {
   cardBtnRef.classList.remove("added");
   cardBtnRef.disabled = false;
 
+  renderBasket();
   saveToLocalStorage();
-  renderAllBasketCards();
-  renderTotals();
 }
 
 function changeAmount(dishID, type) {
@@ -122,6 +129,7 @@ function changeAmount(dishID, type) {
 
   renderAmount(basketItem);
   if (type === "sub" && basketItem.amount === 0) deleteFromBasket(dishID);
+  renderBasketAmount;
   renderTotals();
   saveToLocalStorage();
 }
@@ -136,6 +144,8 @@ function confirmOrder() {
   deleteAllFromBasket();
   saveToLocalStorage();
   renderBasket();
+  renderBasketAmount();
+  showBasket();
   openDialog();
 }
 //#endregion

@@ -51,25 +51,22 @@ const basketEmptyTemplate = () => /*html*/ `
 `;
 
 const basketContentTemplate = () => /*html*/ `
-  
   <div class="basket-cards" id="basket-cards-wrapper"></div>
-  <div class="confirm-order">
-    <table class="costs">
+  <table class="costs-table">
     <tr>
       <th>Subtotal</th>
       <td id="basket-subtotal"></td>
     </tr>
     <tr>
-      <th>Delivery fee</th>
-      <td id="delivery-fee"></td>
+      <th class="delivery-fee">Delivery fee</th>
+      <td class="delivery-fee" id="delivery-fee"></td>
     </tr>
-    <tr class="total">
-      <th>Total</th>
-      <td id="basket-total"></td>
+    <tr>
+      <th class="total">Total</th>
+      <td class="total" id="basket-total"></td>
     </tr>
   </table>
   <button class="btn-buy" onclick="confirmOrder()">Buy now</button>
-  </div>
 `;
 
 const basketCardTemplate = (dish) => /*html*/ `

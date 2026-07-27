@@ -49,8 +49,7 @@
   src: url("../assets/fonts/palanquin-v17-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-html,
-button {
+html {
   font-size: 16px;
   font-family: "Palanquin";
   font-weight: 400;
@@ -62,14 +61,15 @@ button {
 h1 {
   font-family: "Palanquin Dark";
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(2.5rem, calc(2.324rem + 0.751vw), 3rem);
 }
 
 h2 {
   font-weight: 700;
-  font-size: 40px;
+  font-size: clamp(2rem, calc(1.824rem + 0.751vw), 2.5rem);
   color: white;
   padding-bottom: 6px;
+  line-height: 120%;
 }
 
 h3 {
