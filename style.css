@@ -1,7 +1,7 @@
 .hero {
   height: 439px;
   width: 100%;
-  max-width: 1440px;
+  max-width: 3000px;
 
   background-image: url(./assets/pngs/hero-img.png);
   background-position: bottom;
