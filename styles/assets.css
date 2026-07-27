@@ -1,0 +1,251 @@
+/* ----------------------- 
+    BUTTONS 
+----------------------- */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+}
+
+.icon-filled {
+  display: none;
+}
+
+/* CARD-BUTTONS */
+.add-to-basket {
+  background-color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 8px;
+
+  font-family: Palanquin;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+.add-to-basket:hover {
+  color: var(--orange);
+}
+
+.added {
+  color: var(--orange);
+}
+
+/* BASKET-BUTTONS */
+.change-amount {
+  height: 18px;
+  width: 18px;
+  stroke: var(--black);
+  stroke-width: 1.5px;
+  fill: transparent;
+}
+
+.change-amount:hover {
+  .icon-outline {
+    display: none;
+  }
+
+  .icon-filled {
+    display: block;
+    color: var(--orange);
+  }
+}
+
+.btn-buy {
+  color: white;
+  background-color: var(--orange);
+  width: 100%;
+  font-weight: 700;
+  font-size: 2rem;
+  background-color: var(--orange);
+  border-radius: 60px;
+  width: 100%;
+  line-height: 80%;
+  height: 64px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-buy:hover {
+  background-color: var(--beige-light);
+  color: var(--orange);
+}
+
+/* DIALOG-BUTTONS */
+.icon-delete {
+  font-size: 1.25rem;
+}
+
+.icon-delete:hover {
+  color: var(--orange);
+}
+
+.btn-close {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  align-self: flex-end;
+  margin-right: 12px;
+  color: var(--beige-light);
+}
+
+.icon-close {
+  width: 16px;
+  height: 16px;
+  fill: var(--beige-light);
+  display: block;
+  color: var(--beige-light);
+}
+
+/* NAV-BUTTONS */
+.btn-nav {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+
+  .icon-nav {
+    height: 30px;
+    width: 30px;
+    fill: white;
+  }
+}
+
+.btn-basket {
+  position: relative;
+
+  .basket-nav-amount {
+    display: none;
+  }
+
+  .basket-nav-amount.opened {
+    width: 15px;
+    height: 15px;
+    background-color: var(--beige-light);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -1px;
+    top: -3px;
+  }
+}
+
+.btn-nav:active {
+  background-color: white;
+
+  .icon-nav {
+    fill: var(--orange);
+  }
+}
+
+/* ----------------------- 
+    ICONS & IMG
+----------------------- */
+i {
+  font-size: 1rem;
+  height: 16px;
+  width: 16px;
+  line-height: 1;
+  display: block;
+}
+
+/* HEADER */
+.icon-logo {
+  height: 37px;
+  width: 90px;
+  margin-left: 72px;
+}
+
+.icon-burger-nav {
+  height: 60px;
+  width: auto;
+}
+
+/* HERO */
+.logo {
+  width: clamp(120px, calc(91.831px + 7.512vw), 200px);
+  height: clamp(120px, calc(91.831px + 7.512vw), 200px);
+  border: 13px solid var(--beige-light);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+/* MENU */
+.category-logo {
+  height: 91px;
+  width: auto;
+  margin-left: clamp(0px, calc(-118.554px + 11.566vw), 48px);
+}
+
+/* MENU - CARD */
+.dish-img {
+  width: clamp(121px, calc(-91.41px + 20.723vw), 207px);
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* BASKET */
+.icon-basket-empty {
+  height: 120px;
+  width: 120px;
+  fill: var(--beige-light);
+}
+
+.btn-close-basket {
+  display: none;
+}
+
+/* DIALOG */
+.icon-order-confirmed {
+  height: 57px;
+  width: 80px;
+  margin-top: 10px;
+}
+
+/* ----------------------- 
+    SCROLLBAR 
+----------------------- */
+.basket-cards::-webkit-scrollbar {
+  width: 8px;
+}
+
+.basket-cards::-webkit-scrollbar-track {
+  background: var(--grey);
+  border-radius: 4px;
+}
+
+.basket-cards::-webkit-scrollbar-thumb {
+  background: var(--beige-light);
+  border-radius: 4px;
+}
+
+.basket-cards::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}

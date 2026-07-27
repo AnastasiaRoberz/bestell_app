@@ -1,0 +1,100 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ----------------------- 
+    CATEGORY 
+----------------------- */
+.category-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  background-color: var(--orange);
+  height: 60px;
+  position: relative;
+
+  .category-header-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .pizza-details {
+    font-weight: 400;
+    font-size: clamp(1.5rem, calc(1.148rem + 1.502vw), 2.5rem);
+  }
+}
+
+.category-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - 1px);
+  width: 100vw;
+  background-color: var(--orange);
+}
+
+.category-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(100% - 1px);
+  width: 100vw;
+  background-color: var(--orange);
+  transform: translateX(0);
+}
+
+/* ----------------------- 
+    CARDS 
+----------------------- */
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  flex: 1;
+}
+
+.card {
+  width: 100%;
+  height: 141px;
+  background-color: var(--beige-light);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px;
+
+  .dish {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+
+    .dish-description {
+      font-weight: 500;
+    }
+  }
+
+  .order {
+    width: clamp(80px, calc(-3.976px + 8.193vw), 114px);
+    text-align: right;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    .price {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,29 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bestell APP</title>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.svg" />
 
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
 
-    <link rel="stylesheet" href="./styles/variables.css">
-    <link rel="stylesheet" href="./styles/fonts.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./styles/header-footer.css">
-    <link rel="stylesheet" href="./styles/assets.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/header-footer.css" />
+    <link rel="stylesheet" href="./styles/assets.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/menu.css" />
+    <link rel="stylesheet" href="./styles/basket.css" />
+    <link rel="stylesheet" href="./styles/dialog.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
 
     <script src="./scripts/data.js" defer></script>
+    <script src="./scripts/helper-functions.js" defer></script>
     <script src="./scripts/template.js" defer></script>
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
-    <header></header>
+  <body>
+    <header id="header">
+      <div class="header-content">
+        <img
+          class="icon-logo"
+          src="./assets/icons/logo-2.svg"
+          alt="Bestell-App Logo"
+        />
+        <img
+          class="icon-burger-nav"
+          src="./assets/icons/icon-nav.svg"
+          alt="Burger_Menü"
+        />
+      </div>
+      <nav>
+        <a href="#header" class="btn-nav">
+          <svg class="icon-nav">
+            <use href="./assets/icons/icons.svg#icon-home"></use>
+          </svg>
+        </a>
+        <button class="btn-nav">
+          <svg class="icon-nav">
+            <use href="./assets/icons/icons.svg#icon-profile"></use>
+          </svg>
+        </button>
+        <button class="btn-nav">
+          <svg class="icon-nav">
+            <use href="./assets/icons/icons.svg#icon-orders"></use>
+          </svg>
+        </button>
+        <button class="btn-nav btn-basket" onclick="showBasket()">
+          <p class="basket-nav-amount" id="amount-nav-basket"></p>
+          <svg class="icon-nav" id="icon-nav-basket">
+            <use href="./assets/icons/icons.svg#icon-basket"></use>
+          </svg>
+        </button>
+      </nav>
+    </header>
 
-    <main></main>
+    <main>
+      <section class="hero">
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="./assets/pngs/logo-img.png"
+            alt="Darstellung eines Burgers"
+          />
+        </div>
+      </section>
 
-    <footer></footer>
-</body>
+      <section class="heading">
+        <div class="heading-wrapper">
+          <h1><span class="heading-span">Burger</span>House</h1>
+          <div class="rating">
+            <img src="./assets/icons/icon-star.svg" alt="Stern" />
+            <p class="avg-rating" id="avg-rating">4,1</p>
+            <p class="sum-rating" id="sum-rating">(317)</p>
+          </div>
+        </div>
+        <p class="subheading">
+          The best of Burgers, Pizza, and Greens, all in one great place.
+        </p>
+      </section>
+
+      <div class="content">
+        <section class="menu-wrapper" id="menu-wrapper"></section>
+
+        <div class="basket-wrapper" id="basket-wrapper">
+          <section class="basket" id="basket">
+            <button class="btn-close-basket" onclick="showBasket()">
+              <i class="bi bi-x-lg"></i>
+            </button>
+            <h4>Your Basket</h4>
+            <div class="basket-content" id="basket-content"></div>
+          </section>
+        </div>
+      </div>
+
+      <dialog
+        id="confirm-order-dialog"
+        onclick="closeDialog()"
+        onclose="closeDialog()"
+      >
+        <div class="dialog-content" onclick="bubblingProtection(event)">
+          <button class="btn-close" onclick="closeDialog()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+          <img
+            class="icon-order-confirmed"
+            src="./assets/icons/icon-order-confirmed.svg"
+            alt=""
+          />
+          <div class="dialog-txt">
+            <p class="txt-order-confirmed">Order confirmed!</p>
+            <p class="txt-on-the-way">Your food is on the way!</p>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <footer>
+      <p class="copyright">© 2025 BurgerHouse</p>
+      <p>Imprint</p>
+      <p>Cookie Preferences</p>
+    </footer>
+  </body>
 </html>

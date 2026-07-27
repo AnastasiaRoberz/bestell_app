@@ -1,5 +1,100 @@
+/* palanquin-dark-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Palanquin Dark";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/palanquin-dark-v17-latin-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-dark-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Palanquin Dark";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/palanquin-dark-v17-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
+/* palanquin-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Palanquin";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/palanquin-v17-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Palanquin";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/palanquin-v17-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Palanquin";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/palanquin-v17-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Palanquin";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/palanquin-v17-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 html {
-    font-size: 16px;
+  font-size: 16px;
+  font-family: "Palanquin";
+  font-weight: 400;
+  text-align: center;
+  color: var(--black);
+  line-height: 1;
+}
+
+h1 {
+  font-family: "Palanquin Dark";
+  font-weight: 700;
+  font-size: clamp(2.5rem, calc(2.324rem + 0.751vw), 3rem);
+  line-height: 120%;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: clamp(2rem, calc(1.824rem + 0.751vw), 2.5rem);
+  color: white;
+  padding-bottom: 6px;
+  line-height: 70%;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--beige-light);
+  line-height: 120%;
+}
+
+/* DIALOG */
+.txt-order-confirmed {
+  font-weight: 700;
+  font-size: clamp(2.25rem, calc(2.118rem + 0.563vw), 2.625rem);
+  line-height: 120%;
+}
+
+.txt-on-the-way {
+  font-weight: 700;
+  font-size: clamp(1.5rem, calc(1.39rem + 0.469vw), 1.813rem);
+  line-height: 120%;
 }
