@@ -45,12 +45,12 @@ dialog.opened::backdrop {
 
 .txt-order-confirmed {
   font-weight: 700;
-  font-size: 42px;
+  font-size: clamp(2.25rem, calc(2.118rem + 0.563vw), 2.625rem);
   line-height: 120%;
 }
 
 .txt-on-the-way {
   font-weight: 700;
-  font-size: 29px;
+  font-size: clamp(1.5rem, calc(1.39rem + 0.469vw), 1.813rem);
   line-height: 120%;
 }

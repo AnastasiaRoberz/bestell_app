@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <header>
+    <header id="header">
       <div class="header-content">
         <img
           class="icon-logo"
@@ -37,11 +37,34 @@
           alt="Bestell-App Logo"
         />
         <img
-          class="icon-nav"
+          class="icon-burger-nav"
           src="./assets/icons/icon-nav.svg"
           alt="Burger_Menü"
         />
       </div>
+      <nav>
+        <a href="#header">
+          <svg class="icon-nav">
+            <use href="./assets/icons/icons.svg#icon-home"></use>
+          </svg>
+        </a>
+        <button class="btn-nav">
+          <svg class="icon-nav">
+            <use href="./assets/icons/icons.svg#icon-profile"></use>
+          </svg>
+        </button>
+        <button class="btn-nav">
+          <svg class="icon-nav">
+            <use href="./assets/icons/icons.svg#icon-orders"></use>
+          </svg>
+        </button>
+        <button class="btn-nav btn-basket" onclick="showBasket()">
+          <p class="basket-nav-amount" id="amount-nav-basket"></p>
+          <svg class="icon-nav" id="icon-nav-basket">
+            <use href="./assets/icons/icons.svg#icon-basket"></use>
+          </svg>
+        </button>
+      </nav>
     </header>
 
     <main>
@@ -72,10 +95,13 @@
       <div class="content">
         <section class="menu-wrapper" id="menu-wrapper"></section>
 
-        <div class="basket-wrapper">
+        <div class="basket-wrapper" id="basket-wrapper">
           <section class="basket" id="basket">
+            <button class="btn-close-basket" onclick="showBasket()">
+              <i class="bi bi-x-lg"></i>
+            </button>
             <h4>Your Basket</h4>
-            <div id="basket-content"></div>
+            <div class="basket-content" id="basket-content"></div>
           </section>
         </div>
       </div>
@@ -87,7 +113,7 @@
       >
         <div class="dialog-content" onclick="bubblingProtection(event)">
           <button class="btn-close" onclick="closeDialog()">
-            <i class="bi bi-x"></i>
+            <i class="bi bi-x-lg"></i>
           </button>
           <img
             class="icon-order-confirmed"
@@ -104,7 +130,7 @@
 
     <footer>
       <div class="footer-content">
-        <p>© 2025 BurgerHouse</p>
+        <p class="copyright">© 2025 BurgerHouse</p>
         <p>Imprint</p>
         <p>Cookie Preferences</p>
       </div>

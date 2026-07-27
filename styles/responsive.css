@@ -1,0 +1,165 @@
+@media screen and (max-width: 768px) {
+  main {
+    padding-bottom: 32px;
+    padding-top: 25px;
+  }
+
+  header {
+    height: 79px;
+
+    .header-content {
+      justify-content: flex-start;
+      padding: 0 16px;
+    }
+
+    .icon-logo {
+      margin-left: 0;
+    }
+  }
+
+  nav {
+    background-color: var(--black);
+    height: 78px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    z-index: 2;
+  }
+
+  footer {
+    margin-bottom: 78px;
+    align-items: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .copyright {
+    order: 2;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 8px;
+    height: fit-content;
+  }
+
+  .icon-burger-nav {
+    display: none;
+  }
+
+  .hero {
+    margin: 0 16px;
+    border-radius: 16px;
+    width: calc(100% - 32px);
+
+    .logo {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .heading-wrapper {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .category {
+    gap: 32px;
+  }
+
+  .category-header {
+    align-items: flex-end;
+  }
+
+  .category-header-content {
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 10px;
+  }
+
+  .category-logo {
+    height: 60px;
+    width: 60px;
+    margin-left: 0;
+  }
+
+  .menu-wrapper {
+    gap: 76px;
+  }
+
+  .dish-img {
+    height: 86px;
+    width: 100%;
+  }
+
+  .order {
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 0;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .basket-wrapper {
+    display: none;
+  }
+
+  .category-header::before {
+    display: none;
+  }
+
+  .category-header::after {
+    display: none;
+  }
+
+  h2 {
+    line-height: 70%;
+  }
+
+  .basket-wrapper.opened {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    z-index: 3;
+  }
+
+  .basket {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  .btn-close-basket {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 24px;
+    height: auto;
+    color: var(--beige-light);
+  }
+
+  dialog.opened {
+    height: fit-content;
+    width: 340px;
+  }
+
+  .dialog-content {
+    padding: 32px 20px;
+  }
+}

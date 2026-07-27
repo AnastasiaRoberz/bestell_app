@@ -38,9 +38,14 @@
   font-weight: 700;
   font-size: 2rem;
   background-color: var(--orange);
-  padding: 13px 37px;
   border-radius: 60px;
-  width: 350px;
+  width: 100%;
+  line-height: 80%;
+  height: 64px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .disable {
@@ -53,6 +58,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 1;
+  align-self: flex-end;
+  margin-right: 12px;
+  color: var(--beige-light);
 }
 
 .icon-close {
@@ -60,10 +69,12 @@
   height: 16px;
   fill: var(--beige-light);
   display: block;
+  color: var(--beige-light);
 }
 
 .basket-cards::-webkit-scrollbar {
   width: 8px;
+  height: 64px;
 }
 
 .basket-cards::-webkit-scrollbar-track {
@@ -78,4 +89,48 @@
 
 .basket-cards::-webkit-scrollbar-thumb:hover {
   background: var(--orange);
+}
+
+.icon-nav {
+  height: 30px;
+  width: 30px;
+  fill: white;
+}
+
+.btn-nav {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.btn-basket {
+  position: relative;
+}
+
+.basket-nav-amount {
+  display: none;
+}
+
+.basket-nav-amount.opened {
+  width: 15px;
+  height: 15px;
+  background-color: var(--beige-light);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -1px;
+  top: -3px;
+}
+
+.btn-nav:active {
+  background-color: white;
+
+  .icon-nav {
+    fill: var(--orange);
+  }
 }

@@ -16,12 +16,12 @@ header {
   }
 
   .icon-logo {
-    height: 38px;
-    width: auto;
+    height: 37px;
+    width: 90px;
     margin-left: 72px;
   }
 
-  .icon-nav {
+  .icon-burger-nav {
     height: 60px;
     width: auto;
   }
@@ -40,4 +40,8 @@ footer {
 .footer-content {
   display: flex;
   gap: 80px;
+}
+
+nav {
+  display: none;
 }

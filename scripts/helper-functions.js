@@ -5,8 +5,6 @@ const formatPrice = (value) =>
     .replace(/\s+/, "");
 
 const getDishById = (basketDishID) => {
-  console.log(basketDishID);
-
   for (const category of menu) {
     const found = category.dishes.find((dish) => dish.dishID === basketDishID);
     if (found) return found;
@@ -35,7 +33,25 @@ const renderAmount = (basketDish) => {
     formatPrice(dish.price * basketDish.amount);
   document.getElementById(`add-to-basket${dish.dishID}`).innerText =
     addedBtnContent(basketDish.amount);
+  renderBasketAmount();
 };
+
+function renderBasketAmount() {
+  const iconNav = document.getElementById("icon-nav-basket");
+  const amountNav = document.getElementById("amount-nav-basket");
+  let amount = 0;
+  for (basketItem of basket) {
+    amount += basketItem.amount;
+  }
+  if (amount > 0) {
+    iconNav.style.fill = "var(--orange)";
+    amountNav.classList.add("opened");
+    amountNav.innerText = amount;
+  } else if (amount === 0) {
+    amountNav.style.display = "none";
+    iconNav.style.fill = "white";
+  }
+}
 
 function renderTotals() {
   let subtotal = 0;
