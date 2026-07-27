@@ -42,18 +42,12 @@ const renderAmount = (basketDish) => {
 function renderBasketAmount() {
   const iconNav = document.getElementById("icon-nav-basket");
   const amountNav = document.getElementById("amount-nav-basket");
-  let amount = 0;
-  for (basketItem of basket) {
-    amount += basketItem.amount;
-  }
-  if (amount > 0) {
-    iconNav.style.fill = "var(--orange)";
-    amountNav.classList.add("opened");
-    amountNav.innerText = amount;
-  } else if (amount === 0) {
-    amountNav.style.display = "none";
-    iconNav.style.fill = "white";
-  }
+  const amount = basket.reduce((sum, item) => sum + item.amount, 0);
+
+  iconNav.style.fill = amount > 0 ? "var(--orange)" : "white";
+  amountNav.innerText = amount > 0 ? amount : "";
+  amountNav.classList.toggle("opened", amount > 0);
+  amountNav.style.display = amount > 0 ? "" : "none";
 }
 
 function renderTotals() {
