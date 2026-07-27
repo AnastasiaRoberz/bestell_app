@@ -33,7 +33,7 @@ const categoryTemplate = (currentCategory, dishes) => /*html*/ `
           src="./assets/icons/${currentCategory.iconFileName}"
           alt="Icon eines Burgers"
         />
-        <h2 id="category-name">${currentCategory.category}</h2>
+        <h2>${currentCategory.category} <span class="${getCategoryDetailClass(currentCategory.category)}">${currentCategory.nameDetails}</span> </h2>
       </div>
     </div>
     <div class="cards-wrapper">${dishes}</div>

@@ -1,9 +1,5 @@
-.basket-wrapper {
-  width: 435px;
-}
-
 .basket {
-  width: 435px;
+  width: 100%;
   height: 794px;
   max-height: 100dvh;
   padding: 64px 32px;
@@ -26,20 +22,6 @@
   overflow: hidden;
 }
 
-.basket-txt {
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 120%;
-  margin: 32px 0;
-  color: var(--beige-light);
-}
-
-.icon-basket-empty {
-  height: 120px;
-  width: 120px;
-  fill: var(--beige-light);
-}
-
 .basket-cards {
   width: 100%;
   display: flex;
@@ -60,35 +42,35 @@
   flex-direction: column;
   gap: 8px;
   margin-right: 8px;
-}
 
-.basket-dish {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+  .basket-dish {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 
-.dish-name {
-  line-height: 120%;
-  text-align: left;
-}
+    .dish-name {
+      line-height: 120%;
+      text-align: left;
+    }
+  }
 
-.basket-info {
-  display: flex;
-  justify-content: space-between;
-}
+  .basket-info {
+    display: flex;
+    justify-content: space-between;
 
-.basket-amount {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+    .basket-amount {
+      display: flex;
+      align-items: center;
+      gap: 6px;
 
-.amount-value {
-  line-height: 0;
-  padding-bottom: 3px;
-  width: 30px;
-  align-content: center;
+      .amount-value {
+        line-height: 0;
+        padding-bottom: 3px;
+        width: 30px;
+        align-content: center;
+      }
+    }
+  }
 }
 
 .costs-table {
@@ -125,4 +107,13 @@
     font-weight: 700;
     border-top: 3px solid var(--beige-light);
   }
+}
+
+/* EMPTY BASKET */
+.basket-txt {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 120%;
+  margin: 32px 0;
+  color: var(--beige-light);
 }

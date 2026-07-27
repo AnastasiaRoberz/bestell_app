@@ -1,6 +1,7 @@
 let menu = [
   {
-    "category": "Burger & Sandwiches",
+    "category": "Burger",
+    "nameDetails": "& Sandwiches",
     "iconFileName": "icon-burger.svg",
     "additionalInfo": "",
     "dishes": [
@@ -38,6 +39,7 @@ let menu = [
   },
   {
     "category": "Pizza",
+    "nameDetails": "(30cm)",
     "iconFileName": "icon-pizza.svg",
     "additionalInfo": "30cm",
     "dishes": [
@@ -74,6 +76,7 @@ let menu = [
   },
   {
     "category": "Salad",
+    "nameDetails": "",
     "iconFileName": "icon-salad.svg",
     "additionalInfo": "",
     "dishes": [
