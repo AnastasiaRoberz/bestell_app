@@ -81,6 +81,7 @@ button {
 /* DIALOG-BUTTONS */
 .icon-delete {
   font-size: 1.25rem;
+  margin-left: 4px;
 }
 
 .icon-delete:hover {
