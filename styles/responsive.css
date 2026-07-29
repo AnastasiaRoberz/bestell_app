@@ -6,6 +6,10 @@
     padding: 32px 0;
   }
 
+  body.no-scroll {
+    overflow: auto;
+  }
+
   header {
     height: 79px;
 
