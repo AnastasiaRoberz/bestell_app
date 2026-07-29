@@ -61,6 +61,7 @@ const renderBasketCard = (basketDish) => basketCardTemplate(getDishById(basketDi
 function showBasket() {
   const mobileBasketRef = document.getElementById("basket-wrapper");
   mobileBasketRef.classList.toggle("opened");
+  document.body.classList.toggle("no-scroll");
 }
 
 function addToBasket(dishID, btnRef) {
@@ -115,6 +116,7 @@ function confirmOrder() {
   renderBasket();
   renderBasketAmount();
   showBasket();
+  document.body.classList.remove("no-scroll");
   openDialog();
 }
 //#endregion
